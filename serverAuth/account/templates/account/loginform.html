@@ -1,0 +1,20 @@
+{% comment %} {% extends 'base/base_page.html' %}     {% endcomment %}
+{% block content %}
+<div>
+    <h1>Unix Login</h1>
+        {% csrf_token %}
+        <form action="{% url 'account:login' %}" method="post">
+
+                {% if request.GET.next %}
+                    <input type="hidden" name="next" value="{{request.GET.next}}">
+                {% endif %}
+
+                <p>ID</p>
+                    <input type="text" name="id"><br>
+                <p>Password</p>
+                    <input type="password" name="password"><br>
+                <br>
+                <input type="submit" value="Login">
+        </form>
+</div>
+{% endblock %}

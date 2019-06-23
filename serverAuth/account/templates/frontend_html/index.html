@@ -1,0 +1,88 @@
+{% extends 'base/base_page.html' %}    
+{% block content %}
+<div>
+    {% load static %}
+    <div class="side-menu">
+        <ul>
+            <li class="home">HOME</li>
+            <li class="policy">POLICY</li>
+            <li class="approvepaper">APPROVE</li>
+            <li class="status">REPORT</li>
+            {% if isSuper %}
+                <li class="supermode">SUPERVISOR</li>
+            {% endif %}
+        </ul>
+    </div>
+    <div id="content">
+        <div class="con_policy"></div>
+        <div class="con_approvepaper"></div>
+        
+        <div id="report">
+            <div class="report_head" style="display:none;"><h1>Report</h1></div>
+            <div id="heatmap_div" style="width: 50%; margin: auto;"></div>    
+            <div class="con_status" style="margin-bottom: 50px;">
+                
+                {% comment %} <div id="heatmap"></div> {% endcomment %}
+            </div>
+        </div>
+
+        {% if isSuper %}
+            <div class="con_supermode"></div>
+        {% endif %}
+    </div>
+    
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/heatmap.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    {% comment %} <table border=1>
+        <thead>
+            <tr>
+                <th>PT</th>
+                <th>D</th>
+                <th>P</th>
+                <th>D</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="3">XXX</td>
+                <td rowspan="2">D</td>
+                <td>P</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>DD</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>DDD</td>
+                <td>PPP</td>
+                <td>3</td>
+            </tr>
+
+            <tr>
+                <td rowspan="2">กกกก</td>
+                <td>DDD</td>
+                <td>PPP</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>DDD</td>
+                <td>PPP</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td rowspan="1">xxxxxccccc</td>
+                <td>DDD</td>
+                <td>PPP</td>
+                <td>3</td>
+            </tr>
+         
+        
+        </tbody>
+        
+
+    </table> {% endcomment %}
+</div>
+{% endblock %}
+

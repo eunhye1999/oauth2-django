@@ -1,0 +1,32 @@
+{% extends 'base/base_page.html' %}    
+{% block content %}
+{% load static %}
+    <div>
+        <h1>Register</h1>
+        <div class="contentRegis">
+            <form class="register_form">
+                <div class="regis_username">
+                    <label for="regis_username">Username : </label>
+                    <input name="regis_username" id="regis_username" type="text" required> 
+                </div>
+                <div class="regis_password">
+                    <label for="regis_password">Password : </label>
+                    <input name="regis_password" id="regis_password" type="password" required> 
+                </div>
+                <div class="regis_againpassword">
+                    <label for="regis_againpassword">Re-Password : </label>
+                    <input name="regis_againpassword" id="regis_againpassword" type="password" required> 
+                </div>
+                <div class="regis_email">
+                    <label for="regis_email">E-mail : </label>
+                    <input name="regis_email" id="regis_email" type="email" required> 
+                </div>
+                <div class="regis_department"></div>
+                <div class="regis_position"></div>
+
+                <input id="but_submit" type="submit" value="Go"> 
+            </form>
+        </div>
+    </div>
+    <script src={% static 'account/js/main.js' %}></script>
+{% endblock %}

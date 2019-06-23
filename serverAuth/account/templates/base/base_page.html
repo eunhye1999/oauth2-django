@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Blog Home - Start Bootstrap Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+    <script src="{% static 'jquery-3.4.1.min.js' %}"></script>
+  </head>
+
+  <body>
+      <div class="balckground_opa googleS" style="">
+      </div>
+      
+      <div class="balckground_approve" style="">
+        <img src="{% static "img/Double Ring-1.4s-130px.gif" %}">
+      </div>
+
+      <div class="balckground_detail detailFade" style="">
+      </div>
+      
+      <div class="content_detail detailFade">
+        <div style="width:50%; margin:10px auto; " id="barchart"></div>
+        <div class="content_ddd"></div>
+      </div>
+
+      <div style="">
+        <div class="header">
+          <div class="braner">
+            <h1><a>Unix Dev</a></h1>
+          </div>
+          <div class="user_auth">
+            {% if auth_.status_login %}
+              <p>
+                User : <span pkid="{{auth_.userpk}}" id="username_">{{auth_.user}}</span>
+                Department : <span id="department_">{{depName}}</span>
+                Position : <span id="position_">{{posName}}</span>
+                <a href="{% url 'account:logout' %}">Logout</a>
+              <p>
+            {% else %}
+              
+              <a href="{% url 'account:login' %}">Login</a> | 
+              {% comment %} <a href="{% url 'account:signuppage' %}">Register</a> {% endcomment %}
+            {% endif %}
+          </div>
+          
+        </div>
+        {% comment %} <hr> {% endcomment %}
+        <div class="wrapper">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+        
+        {% comment %} <hr style="clear: both;"> {% endcomment %}
+        {% comment %} Footer
+        <div class="user_info">
+          {% if auth_.status_login %}
+            <p>
+              User : <span pkid="{{auth_.userpk}}" id="username_">{{auth_.user}}</span> <br>
+              Department : <span id="department_">{{depName}}</span> <br> 
+              Position : <span id="position_">{{posName}}</span> <br>
+            <p>
+          {% endif %}
+        
+        </div> {% endcomment %}
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,24 @@
+<div>
+    Unixdev Provider
+    <hr>
+    <div>
+            user : {{context.user}} {{context.user_name}}
+
+            <ul>
+            {% for scope in context.scope_ary %}
+                <li>{{ scope }}</li>
+            {% endfor %}
+            </ul>
+            
+        <form method="post" action="{% url 'oauth2access:authorize' %}">{% csrf_token %}
+            <input type="hidden" name="scope" value="{{ context.scope_str }}">
+            <input type="hidden" name="user" value="{{ context.user }}">
+            <input type="hidden" name="application" value="{{ context.application }}">
+            <input type="hidden" name="redirect" value="{{ context.redirect }}">
+            <input type="hidden" name="state" value="{{request.GET.state}}">
+
+            <input type="submit" value="allow">
+            <input type="button" value="reject">
+        </form>
+    </div>
+</div>
